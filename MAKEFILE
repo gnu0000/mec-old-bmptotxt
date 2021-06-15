@@ -1,0 +1,35 @@
+all : bmptotxt.exe
+
+#
+#.c.obj:
+#   cl -c -W3 -AS -nologo $*.c 
+#
+#dump.obj : dump.c
+#
+#dump.exe : dump.obj
+#   link $*,,NULL,slibcer/NOD/NOE/CO/LI;
+#
+#
+#
+#
+
+#
+# optimized version
+#
+#.c.obj:
+#   cl /W3 /c /AS /Ox Gr /nologo $*.c
+#
+#dump.exe : dump.obj arg.obj
+#  link dump arg/E/PACKC/PACKD,,NUL,os2 slibcep/NOD/NOE,$*.def
+#  bind dump.exe doscalls.lib
+#
+#
+
+.c.obj:
+   cl /W3 /c /AL /Od /Zi /nologo $*.c
+
+bmptotxt.exe : bmptotxt.obj
+  link $* /CO,,NUL,os2 llibcep/NOD/NOE,$*.def
+  bind $*.exe
+
+
